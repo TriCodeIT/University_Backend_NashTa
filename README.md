@@ -41,24 +41,44 @@ npm run dev
 
 6. Lakukan pengetesan endpoint-endpoint API menggunakan Postman
 
-a. GET Data Mahasiswa dan Matakuliah
+
+
+a. Mengambil Data Mahasiswa dengan Nama Mata Kuliahnya beserta Nilainya 
 
 http://localhost:3000/ dengan METHOD GET lalu Send
 
-b. GET Nilai Rata-Rata dari tiap Mahasiswa
+
+
+b. Mengambil Jumlah Nilai Rata-Rata dari Seluruh Mahasiswa
 
 http://localhost:3000/average dengan METHOD GET lalu Send
 
-c. POST mengupload Data Mahasiswa dengan MataKuliah beserta Nilainya
 
-http://localhost:3000/ dengan METHOD POST lalu Send and Download
 
-d. PUT mengedit Data Mahasiswa dengan MataKuliah beserta Nilainya
+c. Mengupload Nilai dengan Data ID_Mahasiswa dan ID_MataKuliah
 
-http://localhost:3000/ dengan METHOD PUT lalu Send and Download
+http://localhost:3000/ 
 
-e. DELETE menghapus Nilai pada Data Mahasiswa yang Mengontrak Mata Kuliah tersebut
+Pilihlah Bagian Body dan x-www-form-urlencoded
 
-http://localhost:3000/ dengan METHOD DELETE lalu Send and Download
+Lalu Masukan KEY : ID_Mahasiswa , ID_MataKuliah dan Nilai beserta masukan VALUE nya
+
+Dengan METHOD POST lalu Send
+
+
+
+d. Mengedit Data Mahasiswa dari file xls
+
+http://localhost:3000/ 
+
+Pilihlah Bagian Body dan form-data
+
+Lalu Masukan KEY : filename pilih tanda bawah File dan masukan VALUE dengan memilih select file kemudian klik file xls yang dimaksudkan, kemudian edit merubah Data Mahasiswa dari xls file
+
+Dengan METHOD PUT lalu Send
+
+e. Menghapus Data Nilai dengan Data ID_Mahasiswa dan ID_MataKuliah melalui id
+
+http://localhost:3000/ dengan METHOD DELETE lalu Send
 
 

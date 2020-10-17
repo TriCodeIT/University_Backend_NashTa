@@ -22,7 +22,9 @@ const upload = multer({
         cb(null, true);
     }
 });
-        
+
+
+// Method GET, Mengambil Data Mahasiswa dengan Nama Mata Kuliahnya beserta Nilainya 
 router.get("/", (req, res) => {
     Nilai.findAll({
         include: [{ model: Mahasiswa, as: "Mahasiswa" }, { model: MataKuliah, as: "MataKuliah" }]
@@ -44,6 +46,8 @@ router.get("/", (req, res) => {
         })
 })
 
+
+// Method GET, Mengambil Jumlah Nilai Rata-Rata dari Seluruh Mahasiswa
 router.get("/average", (req, res) => {
     Nilai.findAll({
         attributes: [[sequelize.fn('avg', sequelize.col('Nilai.Nilai')), 'rata_rata_nilai']],
@@ -58,6 +62,8 @@ router.get("/average", (req, res) => {
         })
 })
 
+
+//Method POST, Mengupload Nilai dengan Data ID_Mahasiswa dan ID_MataKuliah
 router.post("/", (req, res) => {
     console.log(req.body);
     Nilai.create({
@@ -74,6 +80,8 @@ router.post("/", (req, res) => {
 
 })
 
+
+// Method PUT, Mengedit Data Mahasiswa dari file xls 
 router.put("/", upload.single("data"), (req, res) => {
     console.log(req.file.filename);
     const workbook = XLSX.readFile(`uploads/${req.file.filename}`);
@@ -99,6 +107,8 @@ router.put("/", upload.single("data"), (req, res) => {
     })
 })
 
+
+// Method DELETE, Menghapus Data Nilai dengan Data ID_Mahasiswa dan ID_MataKuliah melalui id
 router.delete("/:id", (req, res) => {
     const { id } = req.params;
     let deletedNilai;
